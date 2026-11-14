@@ -1,3 +1,4 @@
+(function(){
 const R='ecomaura/rsacademy',$=s=>document.querySelector(s),api=(p,o={})=>fetch('https://api.github.com/repos/'+R+'/contents/'+p,{...o,headers:{Authorization:'Bearer '+$('#tk').value.trim(),Accept:'application/vnd.github+json'}});
 const b64=s=>btoa(unescape(encodeURIComponent(s))),st=t=>$('#st').textContent=t;
 const rd=f=>new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(r.result.split(',')[1]);r.onerror=no;r.readAsDataURL(f)});
@@ -14,3 +15,5 @@ await putJson(list,sha);draw(list);st('Published! It appears on the site in abou
 $('#al').onclick=async e=>{const id=e.target.dataset.id;if(!id||!confirm('Delete this item?'))return;try{const{sha,list}=await getJson();const it=list.find(x=>x.id==id);
 if(it&&it.url.startsWith('uploads/')){const g=await api(it.url+'?ref=main');if(g.ok)await api(it.url,{method:'DELETE',body:JSON.stringify({message:'Remove file',branch:'main',sha:(await g.json()).sha})})}
 const n=list.filter(x=>x.id!=id);await putJson(n,(await getJson()).sha);draw(n)}catch(x){st(x.message)}};
+
+})();

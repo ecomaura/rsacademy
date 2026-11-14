@@ -1,3 +1,4 @@
+(function(){
 const $=s=>document.querySelector(s);
 const LEADS_ENDPOINT=''; // optional: Formspree / Google Apps Script URL to receive leads
 let all=[],f='All';
@@ -18,3 +19,5 @@ $('#lead').onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormDa
 try{localStorage.setItem('rsa_lead',JSON.stringify(d))}catch{}
 if(LEADS_ENDPOINT)fetch(LEADS_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}).catch(()=>{});
 open_()};
+
+})();
