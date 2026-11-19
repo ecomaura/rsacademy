@@ -56,3 +56,4 @@ nav{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;flex-
 .ph.tall img{min-height:420px}
 .ph.round img{border-radius:inherit}
 .strip{background:var(--ink);color:#fff;text-align:center;font-size:.85rem;padding:5px}.pic{width:100%;display:block;border-radius:26px}
+.av{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;color:#fff;font:800 1.6rem "Baloo 2";background:linear-gradient(135deg,var(--or),var(--am))}.card ul{padding-left:18px;color:var(--mu);margin-top:8px;font-size:.95rem}
